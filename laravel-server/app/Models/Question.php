@@ -24,4 +24,9 @@ class Question extends Model
     {
         return $this->hasMany(Choice::class, 'question_id', 'id');
     }
+
+    public function answers()
+    {
+        return $this->hasMany(Answer::class, 'question_id', 'id');
+    }
 }
