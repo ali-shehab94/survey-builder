@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,4 +19,8 @@ Route::group(['middleware' => 'api'], function($router) {
     Route::post('/register', [UserController::class, 'register']);
     Route::post('/login', [UserController::class, 'login']);
     Route::post('/logout', [UserController::class, 'logout']);
+});
+
+Route::group(['prefix' => 'admin'], function($router) {
+    Route::post('/add_survey', [AdminController::class, 'createSurvey']);
 });
