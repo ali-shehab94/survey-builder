@@ -11,13 +11,19 @@ class SurveyController extends Controller
 {
     public function getSurvey($id = null)
     {
-        if ($id) 
+        if ($id)
         {
-            $survey = Survey::where('id', $id)->with('questions')->get();
+            $survey = Survey::where('id', $id)->with('questions.choices')->get();
             return response()->json([
                 "status" => "Success",
                 "survey" => $survey,
-                "this" => $survey
+            ], 200);
+        }else 
+        {
+            $survey = Survey::all();
+            return response()->json([
+                "status" => "Success",
+                "surveys" => $survey,
             ], 200);
         }
     }
