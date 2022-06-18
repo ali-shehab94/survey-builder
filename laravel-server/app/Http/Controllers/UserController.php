@@ -15,6 +15,16 @@ class UserController extends Controller
     }
 
 
+    public function answerSurvery()
+    {
+
+    }
+
+
+
+
+
+
      /**
      * Register user.
      *

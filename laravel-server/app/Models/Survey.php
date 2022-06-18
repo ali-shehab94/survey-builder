@@ -20,4 +20,9 @@ class Survey extends Model
     {
         return $this->hasMany(Answer::class, 'survey_id', 'id');
     }
+
+    public function choices()
+    {
+        return $this->hasManyThrough(Choice::class, Question::class);
+    }
 }
