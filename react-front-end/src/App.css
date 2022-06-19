@@ -1,38 +1,61 @@
-.App {
-  text-align: center;
+.body {
+  margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.logo {
+  width: 130px;
+  border-radius: 50%;
+}
+.profile-img {
+  width: 130px;
+  border-radius: 50%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.btn {
+  width: 200px;
+  height: 50px;
+  cursor: pointer;
+  font-family: Helvetica, sans-serif;
+  font-size: 20px;
+  border-radius: 5px;
+  background-color: #7CE54B;
+  transition: transform 0.3s ease;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.btn:hover {
+ transform: translateY(-3px);
+}
+
+.header {
+  background-color: #7CE54B;
+  display: flex;
+  height: 150px;
+  justify-content: space-between;
+  padding: 0 100px 0 100px;
+  align-items: center;
+}
+
+.auth-card {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 550px;
+  width: 35%;
+  border: 1px solid black;
+  box-shadow: 11px 12px 13px 12px rgb(211, 210, 210);
+  border-radius: 5%;
+}
+
+.signin-signup {
+  text-align: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  display: flex;
+  padding: 90px 0 90px 0;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.input-auth {
+  width: 70%;
+  height: 35px;
+  margin-bottom: 30px;
+  border-radius: 7px;
 }
