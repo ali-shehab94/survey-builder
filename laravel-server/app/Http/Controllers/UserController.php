@@ -74,7 +74,16 @@ class UserController extends Controller
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
-        return $this->respondWithToken($token);
+        $user = Auth::user();
+        return response()->json([
+            'status' => "Success",
+            'user' => $user,
+            'user_type' => $user->user_type,
+            'authorisation' => [
+                'token' => $token,
+                'type' => 'bearer'
+            ]
+        ]);;
     }
 
     /**

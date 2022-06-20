@@ -10,15 +10,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class ChoiceController extends Controller
 {
-    public function getChoices($id = null)
+    public function getChoices()
     {
-        if ($id) 
-        {
-            $choice = Choice::where('question_id', $id)->get();
-            return response()->json([
-                "status" => "Success",
-                "choices" => $choice,
-            ], 200);
-        }
+        $choice = Choice::all();
+        return response()->json([
+            "status" => "Success",
+            "choices" => $choice,
+        ], 200);
     }
 }

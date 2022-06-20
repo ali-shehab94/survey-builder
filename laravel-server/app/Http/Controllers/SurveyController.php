@@ -27,4 +27,25 @@ class SurveyController extends Controller
             ], 200);
         }
     }
+
+    public function deleteSurvey(Request $request)
+    {
+        $survey_id = $request->survey_id;
+        {
+            $survey = Survey::find($survey_id);
+            if($survey)
+            {
+                $survey->delete();
+                return response()->json([
+                    "status" => "Success",
+                    "message" => "Survey with id $survey_id deleted successfully",
+                ], 200);
+            }
+            return response()->json([
+                "status" => "Success",
+                "message" => "Survey with id $survey_id NOT FOUND",
+            ], 200);
+        };
+        
+    }
 }

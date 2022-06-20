@@ -19,10 +19,17 @@ use App\Http\Controllers\AnswerController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+Route::post('/delete_survey', [SurveyController::class, 'deleteSurvey']);
+
+
 Route::group(['prefix' => 'no_auth'], function($router) {
     Route::post('/register', [UserController::class, 'register']);
     Route::post('/login', [UserController::class, 'login']);
 });
+
+
+
 
 Route::group(['middleware' => 'role.admin'], function () {
     Route::group(['prefix' => 'admin'], function($router) {
@@ -31,13 +38,12 @@ Route::group(['middleware' => 'role.admin'], function () {
     });
 });
 
+Route::post('/choices', [ChoiceController::class, 'getChoices']);
 
-Route::get('/get_survey/{id?}', [SurveyController::class, 'getSurvey']);
 
 Route::group(['middleware' => 'role.user'], function () {
     Route::post('/send_answers', [AnswerController::class, 'answerSurvey']);
     Route::post('/logout', [UserController::class, 'logout']);
-    Route::get('/choices/{id?}', [ChoiceController::class, 'getChoices']);
-
+    Route::get('/get_survey/{id?}', [SurveyController::class, 'getSurvey']);
 
 });
