@@ -1,10 +1,14 @@
-import Header from './Header';
+import { useState, useEffect } from 'react';
+import Survey from './Survey';
 
-const Surveys = () => {
+const Surveys = ({ surveys }) => {
   return (
-    <div className='body'>
-      <Header text='Choose a Survey' />
-    </div>
+    <>
+      <h1>Hi</h1>
+      {surveys.map((survey) => (
+        <Survey key={survey.id} survey={survey} />
+      ))}
+    </>
   );
 };
 

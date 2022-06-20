@@ -1,7 +1,6 @@
 import InputAuth from './InputAuth';
 import Button from './Button';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 
 const SignInCard = () => {
   const [email, setEmail] = useState('');
@@ -52,13 +51,5 @@ const SignInCard = () => {
     </div>
   );
 };
-
-/* <input
-  type='text'
-  placeholder={'Add Task'}
-  onChange={(e) => {
-    setText(e.target.value);
-  }}
-/>; */
 
 export default SignInCard;

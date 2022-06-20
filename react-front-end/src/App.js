@@ -1,8 +1,10 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import SignInCard from './components/SignInCard';
 import Surveys from './components/Surveys';
+import SurveysContainer from './components/SurveysContainer';
 function App() {
   return (
     <BrowserRouter>
@@ -20,7 +22,18 @@ function App() {
             </div>
           }
         ></Route>
-        <Route path='/homepage' element={<Surveys />}></Route>
+        <Route
+          path='/homepage'
+          element={
+            <div className='body'>
+              <div>
+                <Header text='Choose a Survey' />
+                <SurveysContainer />
+                <Surveys surveys={surveys} />
+              </div>
+            </div>
+          }
+        ></Route>
       </Routes>
     </BrowserRouter>
   );
